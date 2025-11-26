@@ -1,0 +1,4 @@
+#This file has contains vars required to run this project
+
+subscription_id = "subscriotion id"
+azurerm_resource_group_location = "Brazil South"
