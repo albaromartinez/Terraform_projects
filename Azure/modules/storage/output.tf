@@ -9,3 +9,8 @@ output "access_key" {
   sensitive = true
   value       = azurerm_storage_account.azurerm_storage_account.primary_connection_string
 }
+
+output "id" {
+  description = "The ID of the storage account"
+  value       = azurerm_storage_account.azurerm_storage_account.id
+}

@@ -21,3 +21,8 @@ module "azurerm_storage_account" {
     }
   )
 }
+resource "azurerm_storage_container" "container_name" {
+  name                  = "states"
+  storage_account_id    = module.azurerm_storage_account.id
+  container_access_type = "private"
+}
