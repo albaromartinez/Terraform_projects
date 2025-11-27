@@ -1,0 +1,47 @@
+# ================================
+# ARCHIVOS DE ESTADO (NO SUBIR)
+# ================================
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.*
+
+# ================================
+# PLAN (NO SUBIR)
+# ================================
+*.tfplan
+
+# ================================
+# ARCHIVOS SENSIBLES
+# ================================
+*.tfvars
+*.tfvars.json
+secret.tfvars
+*.pem
+*.key
+*.crt
+
+# ================================
+# DIRECTORIO TERRAFORM LOCAL
+# ================================
+.terraform/
+.terraform.lock.hcl
+
+# ================================
+# ARCHIVOS DE BACKEND
+# ================================
+crash.log
+crash.*.log
+
+# ================================
+# ARCHIVOS DEL SISTEMA
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# OTROS ARCHIVOS QUE NO SE DEBEN SUBIR
+# ================================
+*.bak
+*.tmpi
+plan.out

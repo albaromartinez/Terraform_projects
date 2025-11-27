@@ -10,7 +10,7 @@ variable "subscription_id" {
 # variable "azurerm_resource_group_name" {
 #   description = "Name of the resource group"
 #   type        = string
-  
+
 # }
 variable "azurerm_resource_group_location" {
   description = "Location where the resource group will be deployed"
