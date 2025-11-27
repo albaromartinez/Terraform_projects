@@ -5,7 +5,10 @@ resource "azurerm_storage_account" "azurerm_storage_account" {
   location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "GRS"
-
-  tags = var.tags
- 
+  tags                     = var.tags
+  lifecycle {
+    ignore_changes = [
+      name
+    ]
+  }
 } 
