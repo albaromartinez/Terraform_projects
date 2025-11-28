@@ -14,3 +14,8 @@ output "id" {
   description = "The ID of the storage account"
   value       = azurerm_storage_account.azurerm_storage_account.id
 }
+
+output "primary_blob_endpoint" {
+  description = "The primary Blob service endpoint"
+  value       = azurerm_storage_account.azurerm_storage_account.primary_blob_endpoint
+}

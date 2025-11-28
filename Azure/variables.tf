@@ -30,3 +30,16 @@ variable "tags" {
   description = "Tags to be applied to resources"
   type        = map(string)
 }
+
+# variables for virtual network
+
+
+# variables for virtual machine
+variable "prefix_vm" {
+  type        = string
+  description = "Prefix of the resource name"
+}
+variable "admin_username" {
+  type        = string
+  description = "user to admin the vm"
+}
