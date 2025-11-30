@@ -7,7 +7,7 @@ module "azurerm_resource_group" {
 }
 module "azurerm_storage_account" {
   source              = "./modules/storage"
-  name                = "storage75421"
+  name                = var.sta_name
   resource_group_name = module.azurerm_resource_group.name
   location            = module.azurerm_resource_group.location
   tags                = local.tags
@@ -31,7 +31,7 @@ module "azurerm_virtual_network" {
 #   network_interface_ids   = module.azurerm_virtual_network.win_network_interface_ids
 #   storage_account_uri     = module.azurerm_storage_account.primary_blob_endpoint
 #   azurerm_storage_account = module.azurerm_storage_account.name
-#   admin_username          = var.admin_username
+#   admin_username          = var.admin_username_win
 #   random_password         = random_password.password.result
 #   prefix                  = local.prefix
 #   tags                    = var.tags

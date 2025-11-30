@@ -21,7 +21,10 @@ variable "azurerm_resource_group_location" {
 
 
 #######################variables for storage account #######################
-
+variable "sta_name" {
+  description = "storage account name"
+  type = string
+}
 
 
 #######################variables for virtual network #######################
@@ -29,11 +32,11 @@ variable "azurerm_resource_group_location" {
 
 
 #######################variables for virtual machine#######################
-variable "prefix_vm" {
-  type        = string
-  description = "Prefix of the resource name"
-}
-variable "admin_username" {
+# variable "prefix_vm" {
+#   type        = string
+#   description = "Prefix of the resource name"
+# }
+variable "admin_username_win" {
   type        = string
   description = "user to admin the vm"
 }
