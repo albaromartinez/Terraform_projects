@@ -27,25 +27,25 @@ jobs:
         terraform_wrapper: false
     - name: terraform init
       id: init
-      run: terraform init
+      run: terraform init -var "subscription_id=${{ secrets.SUBSCRIPTION_ID }}"
     
     # Check format
     - name: Terraform Format Check
       id: check
-      run: terraform fmt -check
+      run: terraform fmt -check -var "subscription_id=${{ secrets.SUBSCRIPTION_ID }}"
 
     # Valida configuraciones
     - name: Terraform Validate
       id: validate
-      run: terraform validate
+      run: terraform validate -var "subscription_id=${{ secrets.SUBSCRIPTION_ID }}"
 
     # Plan (simulación de cambios)
     - name: Terraform Plan
       id: plan
-      run: terraform plan -out=tfplan
+      run: terraform plan -out=tfplan -var "subscription_id=${{ secrets.SUBSCRIPTION_ID }}"
 
     # Apply automático SOLO en main
     - name: Terraform Apply
       id: apply
       if: github.ref == 'refs/heads/main'
-      run: terraform apply -auto-approve tfplan
+      run: terraform apply -auto-approve tfplan -var "subscription_id=${{ secrets.SUBSCRIPTION_ID }}"

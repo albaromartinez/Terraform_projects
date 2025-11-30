@@ -5,5 +5,6 @@ resource "azurerm_resource_group" "terraform_rg" {
   tags = {
     Project = "azuretf"
     Owner   = "ajmc"
-    Env = "dev" }
+    Env     = "dev"
+  }
 }
