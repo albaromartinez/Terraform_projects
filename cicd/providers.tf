@@ -13,7 +13,7 @@ provider "azurerm" {
   features {
 
   }
-  subscription_id = var.subscription_id
+  subscription_id = "${secrets.SUBSCRIPTION_ID}"
 }
 
 
