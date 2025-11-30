@@ -51,11 +51,11 @@ output "admin_password_linux" {
   sensitive = true
 }
 
-output "public_key_data" {
-  value = module.azurerm_linux_virtual_machine.public_key_data
-}
+# output "public_key_data" {
+#   value = module.ssh_key_gen.public_key_data
+# }
 
-output "private_key_data" {
-  value     = module.azurerm_linux_virtual_machine.private_key_data
-  sensitive = true
-}
+# output "private_key_data" {
+#   value     = module.ssh_key_gen.private_key_data
+#   sensitive = true
+# }

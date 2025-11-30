@@ -18,6 +18,7 @@ terraform.tfstate.*
 *.tfvars.json
 secret.tfvars
 *.pem
+*.pub
 *.key
 *.crt
 

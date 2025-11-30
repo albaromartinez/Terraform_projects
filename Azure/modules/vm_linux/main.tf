@@ -12,7 +12,7 @@ resource "azurerm_linux_virtual_machine" "myLinuxVM" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = azapi_resource_action.ssh_public_key_gen.output.publicKey
+    public_key = var.public_key
   }
 
   os_disk {

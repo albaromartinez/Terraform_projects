@@ -16,9 +16,3 @@ output "admin_password_linux" {
   value = azurerm_linux_virtual_machine.myLinuxVM.admin_password
 }
 
-output "public_key_data" {
-  value = azapi_resource_action.ssh_public_key_gen.output.publicKey
-}
-output "private_key_data" {
-  value = azapi_resource_action.ssh_public_key_gen.output.privateKey
-}

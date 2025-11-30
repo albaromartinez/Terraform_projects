@@ -38,6 +38,13 @@ module "azurerm_virtual_network" {
 #   depends_on              = [module.azurerm_resource_group, module.azurerm_storage_account, module.azurerm_virtual_network]
 # }
 
+module "ssh_key_gen" {
+  source                  = "./modules/ssh_key_gen"
+  resource_group_name     = module.azurerm_resource_group.name
+  resource_group_location = module.azurerm_resource_group.location
+  resource_group_id       = module.azurerm_resource_group.resource_group_id
+  depends_on              = [module.azurerm_resource_group]
+}
 
 # Vm linux
 module "azurerm_linux_virtual_machine" {
@@ -50,7 +57,7 @@ module "azurerm_linux_virtual_machine" {
   password                = random_password.password.result
   prefix                  = local.prefix
   storage_account_type    = local.vm_size
-  public_key              = var.public_key
+  public_key              = module.ssh_key_gen.public_key_data
   storage_account_uri     = module.azurerm_storage_account.primary_blob_endpoint
   tags                    = local.tags
   depends_on              = [module.azurerm_resource_group, module.azurerm_storage_account, module.azurerm_virtual_network]
