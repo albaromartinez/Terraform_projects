@@ -8,6 +8,7 @@ terraform {
       source  = "aztfmod/azurecaf"
       version = "2.0.0-preview3"
     }
+
   }
 }
 
@@ -18,4 +19,5 @@ provider "azurerm" {
   }
   subscription_id = var.subscription_id
 }
+
 

@@ -9,7 +9,7 @@ variable "resource_group_location" {
   type        = string
 }
 
-variable "random_name" {
-  description = "randoem names generate whit resource random to hashicorp"
+variable "prefix_name" {
+  description = "prefix name defined in locals"
   type = string
 }

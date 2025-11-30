@@ -44,7 +44,7 @@ variable "random_password" {
   type        = string
 }
 
-variable "vm_random_name" {
-  default = "VM name"
-  type    = string
-}
+# variable "vm_random_name" {
+#   default = "VM name"
+#   type    = string
+# }

@@ -6,14 +6,14 @@
 # }
 
 # Generate random text for a unique storage account name
-resource "random_id" "random_id" {
-  keepers = {
-    # Generate a new ID only when a new resource group is defined
-    resource_group = module.azurerm_resource_group.name
-  }
+# resource "random_id" "random_id" {
+#   keepers = {
+#     # Generate a new ID only when a new resource group is defined
+#     resource_group = module.azurerm_resource_group.name
+#   }
 
-  byte_length = 8
-}
+#   byte_length = 8
+# }
 
 resource "random_password" "password" {
   length      = 20
@@ -24,7 +24,7 @@ resource "random_password" "password" {
   special     = true
 }
 
-resource "random_pet" "prefix" {
-  prefix = var.prefix_vm
-  length = 1
-}
+# resource "random_pet" "prefix" {
+#   prefix = var.prefix_vm
+#   length = 1
+# }

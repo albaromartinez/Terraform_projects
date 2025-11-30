@@ -2,3 +2,5 @@
 
 subscription_id = "subscriotion id"
 azurerm_resource_group_location = "Brazil South"
+
+

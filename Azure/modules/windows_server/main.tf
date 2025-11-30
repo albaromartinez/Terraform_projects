@@ -1,20 +1,7 @@
-
-
-
-# Create storage account for boot diagnostics
-# resource "azurerm_storage_account" "my_storage_account" {
-#   name                     = "diag${random_id.random_id.hex}"
-#   location                 = var.resource_group_location
-#   resource_group_name      = var.resource_group_name
-#   account_tier             = "Standard"
-#   account_replication_type = "LRS"
-# }
-
-
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "main" {
   name                  = "${var.prefix}-vm"
-  computer_name       = "ajmcvmwserver"
+  computer_name         = "ajmcvmwserver"
   admin_username        = var.admin_username
   admin_password        = var.random_password
   location              = var.resource_group_location
@@ -25,7 +12,7 @@ resource "azurerm_windows_virtual_machine" "main" {
   os_disk {
     name                 = "myOsDisk"
     caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "LRS"
   }
 
   source_image_reference {
@@ -49,18 +36,18 @@ resource "azurerm_windows_virtual_machine" "main" {
 }
 
 # Install IIS web server to the virtual machine
-# resource "azurerm_virtual_machine_extension" "web_server_install" {
-#   name                       = "${var.vm_random_name}-wsi"
-#   virtual_machine_id         = azurerm_windows_virtual_machine.main.id
-#   publisher                  = "Microsoft.Compute"
-#   type                       = "CustomScriptExtension"
-#   type_handler_version       = "1.8"
-#   auto_upgrade_minor_version = true
+resource "azurerm_virtual_machine_extension" "web_server_install" {
+  name                       = "${var.prefix}-wsi"
+  virtual_machine_id         = azurerm_windows_virtual_machine.main.id
+  publisher                  = "Microsoft.Compute"
+  type                       = "CustomScriptExtension"
+  type_handler_version       = "1.8"
+  auto_upgrade_minor_version = true
 
-#   settings = <<SETTINGS
-#     {
-#       "commandToExecute": "powershell -ExecutionPolicy Unrestricted Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -IncludeManagementTools"
-#     }
-#   SETTINGS
-# }
+  settings = <<SETTINGS
+    {
+      "commandToExecute": "powershell -ExecutionPolicy Unrestricted Install-WindowsFeature -Name Web-Server -IncludeManagementTools; New-Item -Path \"C:\\inetpub\\wwwroot\\index.html\" -ItemType File -Force; Set-Content -Path \"C:\\inetpub\\wwwroot\\index.html\" -Value \"<h1>Hola Mundo desde Terraform e IIS!</h1>\""
+    }
+  SETTINGS
+}
 
